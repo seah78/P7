@@ -1,4 +1,4 @@
-table = [{"Actions": "Action-1", "Coût": 20, "Bénéfice": 0.05},
+TABLE = [{"Actions": "Action-1", "Coût": 20, "Bénéfice": 0.05},
          {"Actions": "Action-2", "Coût": 30, "Bénéfice": 0.10},
          {"Actions": "Action-3", "Coût": 50, "Bénéfice": 0.15},
          {"Actions": "Action-4", "Coût": 70, "Bénéfice": 0.20},
@@ -31,14 +31,35 @@ Nous pouvons dépenser au maximum 500 euros par client.
 
 
 # Construction d'un tableau des entiers
-n = len(table) #nombre d'actions
+n = len(TABLE) #nombre d'actions différentes
 table_int = [i for i in range(2**n)]
-#print(table_int)    
 
 # Conversion binaire
 table_bin = [bin (i) [2:] for i in table_int]
-#print(table_bin)
 
 # Tableau des combinaisons
 table_combinations = ["0" * (n-len(k)) + k for k in table_bin]
-print(table_combinations[0])                          
+
+# Recherche des combinaisons pour un maximum de 500 €
+expense_max = 500
+valid_combinations = []
+for combi in table_combinations:
+    cost = 0
+    benefit = 0
+    for i in range(n):
+        if combi[i] == "1":
+            cost = cost + TABLE[i]["Coût"]
+            benefit = benefit + TABLE[i]["Coût"] * TABLE[i]["Bénéfice"]
+    performance = cost + benefit
+    if cost <= expense_max:
+        valid_combinations.append((combi, performance))
+        
+optimal_soluce = valid_combinations[0][0]
+optimal_performance = valid_combinations[0][1]
+for combi in valid_combinations:
+    if combi[1] > optimal_performance:
+        optimal_soluce = combi[0]
+        optimal_performance = combi[1]
+
+        
+print(f"la solution optimale est {optimal_soluce} avec {optimal_performance} €")
