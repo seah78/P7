@@ -33,8 +33,12 @@ Nous pouvons dépenser au maximum 500 euros par client.
 # Construction d'un tableau des entiers
 n = len(table) #nombre d'actions
 table_int = [i for i in range(2**n)]
-print(table_int)    
+#print(table_int)    
 
 # Conversion binaire
 table_bin = [bin (i) [2:] for i in table_int]
-print(table_bin)                          
+#print(table_bin)
+
+# Tableau des combinaisons
+table_combinations = ["0" * (n-len(k)) + k for k in table_bin]
+print(table_combinations[0])                          
