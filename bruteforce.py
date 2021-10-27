@@ -60,6 +60,11 @@ for combi in valid_combinations:
     if combi[1] > optimal_performance:
         optimal_soluce = combi[0]
         optimal_performance = combi[1]
-
         
-print(f"la solution optimale est {optimal_soluce} avec {optimal_performance} €")
+actions_list = []        
+for i in range(len(optimal_soluce)):
+    if optimal_soluce[i] == "1":
+        actions_list.append(TABLE[i]["Actions"])
+                
+print(f"Meilleure conbinaison d'actions est : {actions_list}")
+print(f"La perfomance est de {optimal_performance} €")
