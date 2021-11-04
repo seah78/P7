@@ -20,14 +20,6 @@ TABLE = [{"Actions": "Action-1", "Coût": 20, "Bénéfice": 0.05},
          {"Actions": "Action-20", "Coût": 114, "Bénéfice": 0.18}
 ]
 
-"""
-Chaque action ne peut être achetée qu'une seule fois.
-
-Nous ne pouvons pas acheter une fraction d'action.
-
-Nous pouvons dépenser au maximum 500 euros par client.
-
-"""
 
 
 # Construction d'un tableau des entiers
@@ -52,14 +44,16 @@ for combi in table_combinations:
             benefit = benefit + TABLE[i]["Coût"] * TABLE[i]["Bénéfice"]
     performance = cost + benefit
     if cost <= expense_max:
-        valid_combinations.append((combi, performance))
+        valid_combinations.append((combi, performance, benefit))
         
 optimal_soluce = valid_combinations[0][0]
 optimal_performance = valid_combinations[0][1]
+optimal_benefit = valid_combinations[0][2]
 for combi in valid_combinations:
     if combi[1] > optimal_performance:
         optimal_soluce = combi[0]
         optimal_performance = combi[1]
+        optimal_benefit = combi[2]
         
 actions_list = []        
 for i in range(len(optimal_soluce)):
@@ -68,3 +62,4 @@ for i in range(len(optimal_soluce)):
                 
 print(f"Meilleure conbinaison d'actions est : {actions_list}")
 print(f"La perfomance est de {optimal_performance} €")
+print(f"Le bénéfice est de {optimal_benefit} €")
