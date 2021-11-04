@@ -66,6 +66,6 @@ for i in range(len(optimal_soluce)):
                 
 print(f"Meilleure conbinaison d'actions est : {actions_list}")
 print(f"La perfomance est de {optimal_performance} €")
-print(f"Le bénéfice est de {optimal_benefit} €")
+print(f"Le bénéfice est de {round(optimal_benefit, 2)} €")
 
 print("--- %s seconds ---" % (time.time() - start_time))
