@@ -1,4 +1,9 @@
 import csv
+import time
+
+start_time = time.time()
+
+
 
 """
 stocks  = []
@@ -75,4 +80,4 @@ print(f" Le prix total est de : {total_price} €")
 print(f" Le bénéfice est de : {total_profit} €")
 print(f" La performance totale est de : {total_performance}")
 
-
+print("--- %s seconds ---" % (time.time() - start_time))

@@ -1,3 +1,7 @@
+import time
+
+start_time = time.time()
+
 TABLE = [{"Actions": "Action-1", "Coût": 20, "Bénéfice": 0.05},
          {"Actions": "Action-2", "Coût": 30, "Bénéfice": 0.10},
          {"Actions": "Action-3", "Coût": 50, "Bénéfice": 0.15},
@@ -63,3 +67,5 @@ for i in range(len(optimal_soluce)):
 print(f"Meilleure conbinaison d'actions est : {actions_list}")
 print(f"La perfomance est de {optimal_performance} €")
 print(f"Le bénéfice est de {optimal_benefit} €")
+
+print("--- %s seconds ---" % (time.time() - start_time))
