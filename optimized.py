@@ -5,7 +5,7 @@ start_time = time.time()
 
 stocks  = []
 
-with open("dataset.csv", "r") as csv_file:
+with open("dataset2.csv", "r") as csv_file:
     reader = csv.reader(csv_file, delimiter=",")
     for line in reader:
         if line[1] != "price":
